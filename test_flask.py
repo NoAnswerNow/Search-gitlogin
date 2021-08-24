@@ -66,7 +66,7 @@ def test_no_data_for_incorrect_symbols_user(client):
 
 
 def test_no_data_for_user_name(client):
-    """Check that we receive correct data for incorrect symbols user"""
+    """Check that we receive correct data for no name user"""
 
     data = {
                 "nm": "as",

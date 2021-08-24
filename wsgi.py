@@ -9,7 +9,6 @@ def main_page():
     return render_template("index.html")
 
 
-#print(login)
 @app.route("/", methods = ['POST'])
 def git_login() :
     '''Getting data from Github Api and return to the user'''
