@@ -10,8 +10,10 @@ load_dotenv(dotenv_path)
 API_TOKEN = os.environ.get("API_TOKEN")
 
 
+
 def get_content(login) :
     '''Get content from api.github using token'''
+    print(API_TOKEN)
     headers = {'Authorization': 'token %s' % API_TOKEN }
     url_name = "https://api.github.com/users/{}".format(login)
     data = {"type" : "all", "sort" : "full_name", "direction" : "asc"}
