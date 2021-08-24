@@ -36,9 +36,9 @@ jobs:
             heroku_api_key: ${{secrets.HEROKU_API_KEY}}
             heroku_app_name: "github-login1"
             heroku_email: "kkamera317@gmail.com"
-            env_file: ".env"
-        env:
-            HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}: ${{secrets.API_TOKEN}}
+            #env_file: ".env"
+        #env:
+          #HD_API_TOKEN: ${{secrets.API_TOKEN}}
 
 
       #- uses: actions/checkout@v1
