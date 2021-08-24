@@ -36,7 +36,7 @@ def test_no_data_not_existing_user(client):
             }
 
     rv = client.post('/',data=data)
-    assert b'Your user is' not in rv.data
+    assert b'Cannot find the user'  in rv.data
     assert b'Search' in rv.data
     assert '200' in rv.status
 
@@ -48,7 +48,7 @@ def test_no_data_for_empty_user(client):
             }
 
     rv = client.post('/',data=data)
-    assert b'Your user is' not in rv.data
+    assert b'Cannot find the user'  in rv.data
     assert b'Search' in rv.data
     assert '200' in rv.status
 
@@ -60,6 +60,19 @@ def test_no_data_for_incorrect_symbols_user(client):
             }
 
     rv = client.post('/',data=data)
-    assert b'Your user is' not in rv.data
+    assert b'Cannot find the user'  in rv.data
+    assert b'Search' in rv.data
+    assert '200' in rv.status
+
+
+def test_no_data_for_user_name(client):
+    """Check that we receive correct data for incorrect symbols user"""
+
+    data = {
+                "nm": "as",
+            }
+
+    rv = client.post('/',data=data)
+    assert b'Username not available'  in rv.data
     assert b'Search' in rv.data
     assert '200' in rv.status
