@@ -1,5 +1,5 @@
 import pytest
-from server import *
+from wsgi import *
 
 
 @pytest.fixture
@@ -16,17 +16,16 @@ def test_main_page(client):
     assert b'Search' in rv.data
     assert '200' in rv.status
 
-#def test_correct_data_for_existing_user(client):
-#    """Check that we receive correct data for user that exists"""
+def test_correct_data_for_existing_user(client):
+    """Check that we receive correct data for user that exists"""
 
-#    data = {
-#                "nm": "dhh",
-#            }
-
-#    rv = client.post('/',data=data)
-#    assert b'David Heinemeier Hansson' in rv.data
-#    assert b'asset-hosting-with-minimum-ssl' in rv.data
-#    assert '200' in rv.status
+    data = {
+                "nm": "dhh",
+            }
+    rv = client.post('/',data=data)
+    assert b'David Heinemeier Hansson' in rv.data
+    assert b'asset-hosting-with-minimum-ssl' in rv.data
+    assert '200' in rv.status
 
 
 def test_no_data_not_existing_user(client):

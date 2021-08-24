@@ -12,10 +12,12 @@ API_TOKEN = os.environ.get("API_TOKEN")
 
 def get_content(login) :
     '''Get content from api.github using token'''
-    headers = {'Authorization': 'token %s' % API_TOKEN}
+    headers = {'Authorization': 'token %s' % API_TOKEN }
     url_name = "https://api.github.com/users/{}".format(login)
     data = {"type" : "all", "sort" : "full_name", "direction" : "asc"}
     req_name = requests.get(url_name, data = json.dumps(data), headers = headers)
+    print(req_name)
+    print(req_name.text)
     if req_name.status_code == 200 :
         req_name = json.loads(req_name.text)
     else :
