@@ -28,3 +28,11 @@ jobs:
       - name: Run  tests
         run: |
           pytest -s
+      - name : Deploy Herocu
+          - uses: actions/checkout@v2
+          - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            heroku_app_name: "github-login1"
+            heroku_email: "kkamera317@gmail.com"
+            usedocker: true
