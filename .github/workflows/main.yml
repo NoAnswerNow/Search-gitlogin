@@ -27,4 +27,4 @@ jobs:
       # Run our unit tests
       - name: Run  tests
         run: |
-          python test_flask.py
+          python Pytest -s
