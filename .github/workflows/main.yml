@@ -29,7 +29,7 @@ jobs:
         run: |
           pytest -s
         env:
-          API_TOKEN: ${{secrets.GH_API_KEY}}
+          API_TOKEN: ${{ secrets.GH_API_KEY }}
           TEST: test45
 
 
