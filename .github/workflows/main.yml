@@ -27,6 +27,7 @@ jobs:
       # Run our unit tests
       - name: Run  tests
         run: |
+          echo $ API_TOKEN
           pytest -s
         env:
           API_TOKEN: ${{ secrets.GH_API_KEY }}
