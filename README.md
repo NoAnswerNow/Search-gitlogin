@@ -35,8 +35,16 @@ This project enables you to find GitHub resources such as user,repositories of t
     assert b'Cannot find the user'  in rv.data
     assert b'Search' in rv.data
     assert '200' in rv.status'
-    
-*In this project workflow run with GitHub event "push" and all tests run automatically
+
+## main.yml
+In this project workflow run with GitHub event "push" and all run automatically (main.yml)
+
+Steps: 
+- Checks-out your repository under $GITHUB_WORKSPACE
+- Set up Python 3.9 environment
+- Install dependencies
+- Run tests
+All your variable values are taken from environment variable using Git-secret and Heroku config vars . This ensures the protection of personal data 
 
 ### Required prerequisites :
 python== 3.9.1
