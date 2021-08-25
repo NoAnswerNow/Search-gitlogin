@@ -44,6 +44,7 @@ Steps:
 - Set up Python 3.9 environment
 - Install dependencies
 - Run tests
+
 All your variable values are taken from environment variable using Git-secret and Heroku config vars . This ensures the protection of personal data.
 Project checked with using Pylint.
 
