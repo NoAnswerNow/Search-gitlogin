@@ -24,37 +24,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Run our unit tests
+      # Run our  tests
       - name: Run  tests
         run: |
-          echo $API_TOKEN
           pytest -s
         env:
           API_TOKEN: ${{ secrets.GH_API_KEY }}
-          TEST: test45
-
-
       - name: Deploy Herocu
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
             heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
             heroku_app_name: "github-login1"
             heroku_email: "kkamera317@gmail.com"
-            #env_file: ".env"
-        #env:
-          #HD_API_TOKEN: ${{secrets.API_TOKEN}}
 
-
-      #- uses: actions/checkout@v1
-      #- name: Login to Heroku Container registry
-      #  env:
-      #    heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-      #  run: heroku container:login
-      #- name: Build and push
-      #  env:
-      #    heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-      #  run: heroku container:push -a github-login1 web
-      #- name: Release
-      #  env:
-      #    HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      #  run: heroku container:release -a github-login1 web
