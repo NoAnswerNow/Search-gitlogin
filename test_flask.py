@@ -23,7 +23,7 @@ def test_correct_data_for_existing_user(client):
                 "nm": "dhh",
             }
     rv = client.post('/',data=data)
-    assert b'David Heinemeier Hansson' in rv.data
+    assert b'Full name: David Heinemeier Hansson' in rv.data
     assert b'asset-hosting-with-minimum-ssl' in rv.data
     assert '200' in rv.status
 
@@ -36,7 +36,7 @@ def test_no_data_not_existing_user(client):
             }
 
     rv = client.post('/',data=data)
-    assert b'Cannot find the user'  in rv.data
+    assert b'Full name: no full name . Repositories: 0'  in rv.data
     assert b'Search' in rv.data
     assert '200' in rv.status
 
@@ -48,7 +48,7 @@ def test_no_data_for_empty_user(client):
             }
 
     rv = client.post('/',data=data)
-    assert b'Cannot find the user'  in rv.data
+    assert b'Full name: no full name . Repositories: 0'  in rv.data
     assert b'Search' in rv.data
     assert '200' in rv.status
 
@@ -60,7 +60,7 @@ def test_no_data_for_incorrect_symbols_user(client):
             }
 
     rv = client.post('/',data=data)
-    assert b'Cannot find the user'  in rv.data
+    assert b'Full name: no full name . Repositories: 0'  in rv.data
     assert b'Search' in rv.data
     assert '200' in rv.status
 
@@ -73,6 +73,6 @@ def test_no_data_for_user_name(client):
             }
 
     rv = client.post('/',data=data)
-    assert b'Username not available'  in rv.data
+    assert b'Full name: no full name . Repositories: 0'  in rv.data
     assert b'Search' in rv.data
     assert '200' in rv.status
