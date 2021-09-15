@@ -1,6 +1,5 @@
 *Python module to get name and all repos of the user from GitHub with using GitHub REST API*
-# GitHub login![IMG_6509](https://user-images.githubusercontent.com/86563053/130796037-d606bbd3-491c-4658-9e73-cd47bbfd64a8.jpg)
-This project enables you to find GitHub resources such as user,repositories of the user (default) or all information what you need (after parameter changes) with GitHub API. 
+![photo_2021-09-15_20-04-34](https://user-images.githubusercontent.com/86563053/133480326-b53baf26-7db0-4e60-ba25-4335648653e5.jpg)This project enables you to find GitHub resources such as user,repositories of the user (default) or all information what you need (after parameter changes) with GitHub API. 
  You can see it here : https://github-login1.herokuapp.com/ 
  ## How to start project
  For local (your localhost) work :
