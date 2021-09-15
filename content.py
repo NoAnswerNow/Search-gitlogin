@@ -38,6 +38,6 @@ def get_content(login) :
             for res in req_repo:
                 result.append(res['name'])
             result = ' , '.join(result)
-            return (req_name['name'] + " : " + result)
+            return (req_name['name'] + " : " +  result)
 
 
