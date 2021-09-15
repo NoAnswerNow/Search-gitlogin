@@ -17,27 +17,34 @@ def get_content(login) :
     req_name = requests.get(url_name, data = json.dumps(data), headers = headers)
     if req_name.status_code == 200 :
         req_name = json.loads(req_name.text)
+        #print(req_name)
     else :
         req_name = None
     url_repo = "https://api.github.com/users/{}/repos".format(login)
     req_repo = requests.get(url_repo, data = json.dumps(data), headers = headers)
     if req_repo.status_code == 200 :
         req_repo = json.loads(req_repo.text)
+        #print(req_repo)
     else :
         req_repo = None
     if not req_repo or not req_name:
         return ("Cannot find the user")
     else :
         result = []
+        #result1 = []
         if not req_name['name']:
             for res in req_repo :
                 result.append(res['name'])
-            result = ','.join(result)
-            return ("Username not available. Login - " + req_name['login'] + " : " + result)
+            result = ' , '.join(result)
+            #for res in req_repo:
+            #    result1.append(res['html_url'])
+            #result1 = ','.join(result1)
+            return ("Username not available. Login - " + req_name['login'] + " : " + result )
         else:
             for res in req_repo:
                 result.append(res['name'])
-            result = ','.join(result)
+            result = ' , '.join(result)
+            print(result)
             return (req_name['name'] + " : " + result)
 
 
